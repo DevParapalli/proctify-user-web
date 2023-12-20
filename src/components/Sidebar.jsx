@@ -57,6 +57,7 @@ const Sidebar = () => {
             </Link>
           );
         })}
+        <li className="w-full"><a href="/exit-secure-environment" className="px-4 py-3 mx-2 my-2 text-white transition-colors bg-red-700 rounded-lg cursor-pointer hover:bg-red-500">Quit Secure Environment</a></li>
       </ul>
     </section>
   );

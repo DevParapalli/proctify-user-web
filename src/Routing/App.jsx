@@ -48,6 +48,7 @@ const App = () => {
         <Route path="/dashboard/verify" element={<VerifyPhoto />} />
         <Route path="/dashboard/exam/completed" element={<FinishExam />} />
         <Route path="/dashboard/registerexam/:id" element={<RegisterExam />} />
+        <Route path="/exit-secure-environment" element={<>Use Ctrl+Q to quit.</>} />
       </Routes>
       <Toaster position="bottom-center" />
     </BrowserRouter>

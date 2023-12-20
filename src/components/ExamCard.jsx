@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import OptionCard from "./OptionCard";
 import { useNavigate } from "react-router";
 import Webcam from "react-webcam";
+import Detector from "./Detector"
 
 const ExamCard = (props) => {
   const webcamRef = useRef(null);
@@ -49,12 +50,12 @@ const ExamCard = (props) => {
   }, [timer]);
 
   return (
-    <section className="flex justify-between items-start w-full">
+    <section className="flex items-start justify-between w-full">
       <div className="w-[70%] mb-10 mt-6 mx-auto">
-        <p className="font-semibold text-sm tracking-wide bg-blue-500 inline-block px-4 py-1 rounded-full text-white">
+        <p className="inline-block px-4 py-1 text-sm font-semibold tracking-wide text-white bg-blue-500 rounded-full">
           Que. {quePointer + 1}
         </p>
-        <p className="mt-4 font-medium leading-8 text-lg">
+        <p className="mt-4 text-lg font-medium leading-8">
           {questions[quePointer]?.description}
         </p>
         <ul className="mt-4">
@@ -73,7 +74,7 @@ const ExamCard = (props) => {
         <div className="flex justify-end mt-8">
           {quePointer === questions.length - 1 && (
             <button
-              className="bg-blue-500 text-blue-100 hover:text-white hover:bg-blue-600 transition-all duration-150 ease-out focus:outline-none active:border-none font-medium px-6 py-2 rounded-full"
+              className="px-6 py-2 font-medium text-blue-100 transition-all duration-150 ease-out bg-blue-500 rounded-full hover:text-white hover:bg-blue-600 focus:outline-none active:border-none"
               onClick={submitQuizHandler}
             >
               Submit Quiz
@@ -81,7 +82,7 @@ const ExamCard = (props) => {
           )}
           {selectedOption !== null && quePointer !== questions.length - 1 && (
             <button
-              className="bg-blue-500 text-blue-100 hover:text-white hover:bg-blue-600 transition-all duration-150 ease-out focus:outline-none active:border-none font-medium px-6 py-2 rounded-full"
+              className="px-6 py-2 font-medium text-blue-100 transition-all duration-150 ease-out bg-blue-500 rounded-full hover:text-white hover:bg-blue-600 focus:outline-none active:border-none"
               onClick={submitAnswerHandler}
             >
               Next
@@ -103,7 +104,8 @@ const ExamCard = (props) => {
           </span>
         </p>
         <div className="aspect-square">
-          <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
+          {/* <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" /> */}
+          <Detector />
         </div>
       </div>
     </section>

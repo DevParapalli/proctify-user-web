@@ -28,6 +28,7 @@ const Login = () => {
       );
       console.log(response.data.token);
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem('sid', response.data.user.sid);
       toast.dismiss();
       toast.success("Login successful!");
       navigate("/dashboard");
@@ -49,18 +50,18 @@ const Login = () => {
   return (
     <section className="flex justify-center min-h-[90vh] items-center w-full bg-blue-50">
       <div className="my-10 w-[40%] bg-white flex justify-center items-center flex-col py-6 px-5 shadow-md rounded-md">
-        <p className="text-2xl font-semibold my-6">Login to Your Account</p>
+        <p className="my-6 text-2xl font-semibold">Login to Your Account</p>
         <div className="w-full">
-          <form className="bg-white px-8 pt-6 mb-4">
+          <form className="px-8 pt-6 mb-4 bg-white">
             <div className="mb-4">
               <label
-                className="block text-gray-700 text-sm font-semibold mb-2"
+                className="block mb-2 text-sm font-semibold text-gray-700"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 id="email"
                 type="email"
                 name="email"
@@ -71,13 +72,13 @@ const Login = () => {
             </div>
             <div className="mb-6">
               <label
-                className="block text-gray-700 text-sm font-semibold mb-2"
+                className="block mb-2 text-sm font-semibold text-gray-700"
                 htmlFor="password"
               >
                 Password
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 id="password"
                 type="password"
                 name="password"
@@ -87,7 +88,7 @@ const Login = () => {
               />
             </div>
             <Link to={"/forget-password"}>
-              <p className="text-sm hover:underline cursor-pointer mt-5 mb-3 text-right">
+              <p className="mt-5 mb-3 text-sm text-right cursor-pointer hover:underline">
                 Forget Password?
               </p>
             </Link>
@@ -101,7 +102,7 @@ const Login = () => {
               </button>
             </div>
             <Link to={"/register"}>
-              <p className="text-sm hover:underline cursor-pointer mt-5 flex justify-center items-center">
+              <p className="flex items-center justify-center mt-5 text-sm cursor-pointer hover:underline">
                 Don't have an account? Register now!
               </p>
             </Link>
