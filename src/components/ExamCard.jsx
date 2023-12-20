@@ -6,7 +6,7 @@ import Webcam from "react-webcam";
 import Detector from "./Detector"
 
 const ExamCard = (props) => {
-  const webcamRef = useRef(null);
+ const webcamRef = useRef(null);
   const [quePointer, setQuePointer] = useState(0);
   const questions = JSON.parse(localStorage.getItem("questions"));
   const [selectedOption, setSelectedOption] = useState(null);
@@ -104,8 +104,9 @@ const ExamCard = (props) => {
           </span>
         </p>
         <div className="aspect-square">
-          {/* <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" /> */}
+          <iframe title="mediasoup integration" src="/stream.html" width="640" height="480"></iframe>
           <Detector />
+          {/* <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" /> */}
         </div>
       </div>
     </section>
