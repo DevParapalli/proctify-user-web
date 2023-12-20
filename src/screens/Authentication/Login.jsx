@@ -28,7 +28,7 @@ const Login = () => {
       );
       console.log(response.data.token);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem('sid', response.data.user.sid);
+      localStorage.setItem('sid', response.data.user.id);
       toast.dismiss();
       toast.success("Login successful!");
       navigate("/dashboard");

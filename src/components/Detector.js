@@ -9,11 +9,7 @@ var count_facedetect = 0;
 
 
 function debounce(func, timeout = 1000){
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
+  func();
 }
 
 
@@ -70,6 +66,18 @@ export default class Detection extends React.Component {
   renderPredictions = predictions => {
     //var count=100;
     const ctx = this.canvasRef.current.getContext("2d");
+    // ctx.drawImage(this.videoRef.current, 0, 0, 500, 300);
+    // let img_data = this.canvasRef.current.toDataURL();
+    // debounce(() => {
+    //   const response = axios.post('http://localhost:5000/sus', {
+    //   image: img_data,
+    //   sid: localStorage.getItem("sid") ?? "9876",
+    //   admin_name: 'TFJS'
+    // });
+    // response.then((res) => {
+    //   console.log(res.data);
+    // });
+    // }, 1000);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // Font options.
     const font = "16px sans-serif";
@@ -149,7 +157,7 @@ export default class Detection extends React.Component {
     //console.log("final")
     //console.log(count_facedetect)
     sessionStorage.setItem("count_facedetect", count_facedetect);
-
+    
   };
 
   render() {
@@ -163,12 +171,14 @@ export default class Detection extends React.Component {
           ref={this.videoRef}
           width="500"
           height="300"
+          // style={{display:"none"}}
         />
         <canvas
           className="size"
           ref={this.canvasRef}
           width="500"
           height="300"
+          // style={{display:"none"}}
         />
       </div>
     );

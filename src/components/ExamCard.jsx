@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import OptionCard from "./OptionCard";
 import { useNavigate } from "react-router";
 import Webcam from "react-webcam";
+import JitsiComponent from "./JitsiComponent";
 import Detector from "./Detector"
 
 const ExamCard = (props) => {
@@ -104,7 +105,7 @@ const ExamCard = (props) => {
           </span>
         </p>
         <div className="aspect-square">
-          <iframe title="mediasoup integration" src="/stream.html" width="640" height="480"></iframe>
+    <JitsiComponent/>
           <Detector />
           {/* <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" /> */}
         </div>
